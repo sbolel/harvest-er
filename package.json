@@ -1,0 +1,43 @@
+{
+  "name": "harvester",
+  "version": "1.0.0",
+  "description": "Automation for Harvest",
+  "main": "bin/www",
+  "engines": {
+    "node": ">=0.12.0"
+  },
+  "scripts": {
+    "start": "node ./bin/www",
+    "debug": "DEBUG=* supervisor ./bin/www"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/sbolel/harvester.git"
+  },
+  "keywords": [
+    "Harvest",
+    "API",
+    "timesheet",
+    "expense",
+    "reporting"
+  ],
+  "author": "Sinan Bolel <sinanbolel@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sbolel/harvester/issues"
+  },
+  "homepage": "https://github.com/sbolel/harvester#readme",
+  "devDependencies": {
+    "supervisor": "^0.9.1"
+  },
+  "dependencies": {
+    "debug": "^2.2.0",
+    "dropbox": "^0.10.3",
+    "express": "^4.13.4",
+    "harvest": "^0.1.4",
+    "moment": "^2.12.0",
+    "prettyjson": "^1.1.3",
+    "prompt": "^1.0.0",
+    "q": "^1.4.1"
+  }
+}
