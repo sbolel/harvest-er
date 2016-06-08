@@ -1,35 +1,36 @@
-#!/usr/bin/env node
 'use strict';
 
-var debug = require('debug')('Application'),
-    express = require('express'),
-    Q = require('q'),
-    _package = require('./../package.json'),
-    _routes = require('./routes'),
-    Harvest = require('harvest'),
-    Harvester = require('./harvester');
+const debug = require('debug')('Application');
+const express = require('express');
+const Q = require('q');
+const routes = require('./routes');
+const Harvest = require('harvest');
+const packageInfo = require('./../package.json');
+const Harvester = require('./harvester');
 
-var app = express();
-app.use('/', _routes);
-app.packageInfo = _package;
+const app = express();
 
-module.exports = app;
+app.use('/', routes);
 
-getTodaysData();
+app.package = packageInfo;
 
-function getTodaysData(){
-  var harvest = new Harvest({
+const getTodaysData = () => {
+  const harvest = new Harvest({
     subdomain: process.env.HARVEST_SUBDOMAIN,
     email: process.env.HARVEST_ADMIN_EMAIL,
     password: process.env.HARVEST_ADMIN_TOKEN
   });
-  var harvester = new Harvester(harvest);
-  var tasks = [];
-  harvester.loaded().then(function(teamData){
+  const harvester = new Harvester(harvest);
+  const tasks = [];
+  harvester.loaded().then((teamData) => {
     tasks.push(harvester.getExpenses());
     tasks.push(harvester.getTimesheets());
-    Q.all(tasks).then(function(results){
+    Q.all(tasks).then((results) => {
       debug(harvester.val());
     });
   });
-}
+};
+
+getTodaysData();
+
+module.exports = app;
