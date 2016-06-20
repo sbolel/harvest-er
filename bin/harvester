@@ -1,20 +1,20 @@
+#!/usr/bin/env node
 'use strict';
 
-const debug = require('debug')('Application');
 const express = require('express');
-const Q = require('q');
-const routes = require('./routes');
 const Harvest = require('harvest');
-const packageInfo = require('./../package.json');
-const Harvester = require('./harvester');
+const Harvester = require('../src/harvester');
+const Q = require('q');
 
 const app = express();
 
-app.use('/', routes);
+app.set('port', process.env.PORT || 4000);
 
-app.package = packageInfo;
+const server = app.listen(app.get('port'), () => {
+  console.log(`Express server listening on port ${server.address().port}`);
+});
 
-const getTodaysData = () => {
+function getTodaysData() {
   const harvest = new Harvest({
     subdomain: process.env.HARVEST_SUBDOMAIN,
     email: process.env.HARVEST_ADMIN_EMAIL,
@@ -26,11 +26,9 @@ const getTodaysData = () => {
     tasks.push(harvester.getExpenses());
     tasks.push(harvester.getTimesheets());
     Q.all(tasks).then((results) => {
-      debug(harvester.val());
+      console.log(harvester.val());
     });
   });
 };
 
 getTodaysData();
-
-module.exports = app;

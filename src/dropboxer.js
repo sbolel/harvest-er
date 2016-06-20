@@ -1,8 +1,8 @@
 'use strict';
 
 const debug = require('debug')('Dropboxer');
+const dateString = require('./dateString');
 const Dropbox = require('dropbox');
-const DateString = require('./DateString');
 const Q = require('q');
 
 // Server-side applications use both the API key and secret.
@@ -23,7 +23,7 @@ const getRandomString = () => {
 const writeJsonToTodaysFile = (data) => {
   debug('Writing new file to Dropbox...');
   const date = new Date();
-  const filePath = '/harvest-data/' + DateString.today() + '.json';
+  const filePath = '/harvest-data/' + dateString.today() + '.json';
   const writeData = JSON.stringify(data);
   return new Promise((resolve, reject) => {
     client.writeFile(filePath, writeData, (error, stat) => {

@@ -1,1 +1,0 @@
-web: DEBUG=* node bin/www

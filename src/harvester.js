@@ -1,6 +1,5 @@
 'use strict';
 
-const debug = require('debug')('Harvester');
 const prettyjson = require('prettyjson');
 const DateString = require('./dateString');
 

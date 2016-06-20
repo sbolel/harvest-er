@@ -29,7 +29,7 @@ The Harvest data will be downloaded and saved to Dropbox each time the server ru
 
     ```js
     var harvester = new Harvest({
-        subdomain: "thinkcrazy",
+        subdomain: "thinkcrazy",  // your harvest subdomain
         email: process.env.HARVESTER_ADMIN_EMAIL,
         password: process.env.HARVESTER_ADMIN_TOKEN
     }),
