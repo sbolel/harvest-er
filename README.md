@@ -9,15 +9,21 @@
 
 Harvester requires [Node.js](https://nodejs.org/) and [npm](https://www.npmjs.org/), which can both be installed by following the instructions on https://nodejs.org/. Installing Node.js also installs npm.
 
-Install from source: `git clone https://github.com/sbolel/harvest-er`
+#### Installing with npm
 
-Install with npm: `npm install harvest-er`
+`npm install harvest-er`
 
-`npm install` - Install node modules
+#### Installing from source
 
-1. `npm run debug` - Start the application using Supervisor with debug messages enabled
+`git clone https://github.com/sbolel/harvest-er` - clone the source code
 
-The Harvest data will be downloaded and saved to Dropbox each time the server runs. To re-run the download, execute `rs` in supervisor.
+`npm install` - install node dependencies
+
+`npm run debug` - start the application using Supervisor with debug messages enabled
+
+## Usage
+
+Start the application using Supervisor with `npm run debug`. The Harvest data will be downloaded and saved to Dropbox each time the server runs. To re-run this download, execute `rs` in Supervisor.
 
 #### Setting up Harvest
 
