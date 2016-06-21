@@ -1,5 +1,5 @@
 {
-  "name": "harvester",
+  "name": "harvest-er",
   "version": "1.1.0",
   "description": "Node integration with Harvest",
   "main": "src/harvester.js",
@@ -13,13 +13,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/sbolel/harvester.git"
+    "url": "git+ssh://git@github.com/sbolel/harvest-er.git"
   },
   "keywords": [
     "Harvest",
     "timesheet",
     "expense",
-    "reporting"
+    "reporting",
+    "employee"
   ],
   "authors": [
     {
@@ -29,9 +30,9 @@
   ],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/sbolel/harvester/issues"
+    "url": "https://github.com/sbolel/harvest-er/issues"
   },
-  "homepage": "https://github.com/sbolel/harvester#readme",
+  "homepage": "https://github.com/sbolel/harvest-er#readme",
   "devDependencies": {
     "supervisor": "^0.11.0"
   },

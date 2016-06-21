@@ -1,18 +1,21 @@
-# Harvest Automation Server
+# harvest-er: Harvest Automation Server
+
+[![NPM version][npm-image]][npm-url]
+[![NPM downloads][npm-downloads-image]][npm-url]
+[![Dependency Status][daviddm-image]][daviddm-url]
+[![License][license-image]][license-url]
 
 ## Getting Started
 
 Harvester requires [Node.js](https://nodejs.org/) and [npm](https://www.npmjs.org/), which can both be installed by following the instructions on https://nodejs.org/. Installing Node.js also installs npm.
 
-#### Installing from source
+Install from source: `git clone https://github.com/sbolel/harvest-er`
 
-1. `git clone https://github.com/onesixsolutions/harvester`
+Install with npm: `npm install harvest-er`
 
-1. `cd` into the project directory
+`npm install` - Install node modules
 
-1. `npm install` - Install node modules
-
-1. `npm run debug` - Start the application using Supervison with debug messages enabled
+1. `npm run debug` - Start the application using Supervisor with debug messages enabled
 
 The Harvest data will be downloaded and saved to Dropbox each time the server runs. To re-run the download, execute `rs` in supervisor.
 
@@ -29,7 +32,7 @@ The Harvest data will be downloaded and saved to Dropbox each time the server ru
 
     ```js
     var harvester = new Harvest({
-        subdomain: "thinkcrazy",  // your harvest subdomain
+        subdomain: process.env.HARVESTER_SUBDOMAIN,  // your harvest subdomain
         email: process.env.HARVESTER_ADMIN_EMAIL,
         password: process.env.HARVESTER_ADMIN_TOKEN
     }),
@@ -50,7 +53,7 @@ var Harvester = require('./harvester');
 ```js
 function getTodaysData(){
   var harvest = new Harvest({
-    subdomain: "thinkcrazy", 
+    subdomain: process.env.HARVESTER_SUBDOMAIN, 
     email: process.env.HARVEST_ADMIN_EMAIL,
     password: process.env.HARVEST_ADMIN_TOKEN
   });
@@ -93,3 +96,20 @@ var client = new Dropbox.Client({
   token: process.env.HARVESTER_DROPBOX_TOKEN
 });
 ```
+
+
+[npm-image]: https://img.shields.io/npm/v/harvest-er.svg?style=flat-square
+[npm-url]: https://npmjs.org/package/harvest-er
+[npm-downloads-image]: https://img.shields.io/npm/dm/harvest-er.svg?style=flat-square
+[travis-image]: https://img.shields.io/travis/sbolel/harvest-er/master.svg?style=flat-square
+[travis-url]: https://travis-ci.org/sbolel/harvest-er
+[daviddm-image]: https://img.shields.io/david/sbolel/harvest-er.svg?style=flat-square
+[daviddm-url]: https://david-dm.org/sbolel/harvest-er
+[climate-image]: https://img.shields.io/codeclimate/github/sbolel/harvest-er.svg?style=flat-square
+[climate-url]: https://img.shields.io/codeclimate/github/sbolel/harvest-er.svg?style=flat-square
+[coverage-image]: https://img.shields.io/codeclimate/coverage/github/sbolel/harvest-er.svg?style=flat-square
+[coverage-url]: https://img.shields.io/codeclimate/coverage/github/sbolel/harvest-er.svg?style=flat-square
+[license-image]: https://img.shields.io/npm/l/harvest-er.svg?style=flat-square
+[license-url]: https://github.com/sbolel/harvest-er/blob/master/LICENSE
+[code-style-image]: https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat-square
+[code-style-url]: http://standardjs.com/
