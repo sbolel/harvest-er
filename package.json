@@ -1,50 +1,51 @@
 {
   "name": "harvest-er",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Node integration with Harvest",
   "main": "src/harvester.js",
   "engines": {
-    "node": ">=5.7.0",
-    "npm": ">=3.9.5"
+    "node": "~6.2.2",
+    "npm": "~3.10.3"
   },
   "scripts": {
     "start": "node ./bin/harvester",
-    "debug": "DEBUG=* supervisor ./bin/harvester"
+    "debug": "nodemon ./bin/harvester",
+    "test": "standard"
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/sbolel/harvest-er.git"
+    "url": "git@github.com:sbolel/harvest-er.git"
   },
   "keywords": [
-    "Harvest",
-    "timesheet",
+    "employee",
     "expense",
+    "Harvest",
+    "HR",
     "reporting",
-    "employee"
+    "timesheet"
   ],
-  "authors": [
-    {
-      "name": "Sinan Bolel",
-      "email": "sinanbolel@gmail.com"
-    }
-  ],
+  "author": {
+    "name": "Sinan Bolel",
+    "email": "sinanbolel@gmail.com",
+    "url": "https://sinanbolel.com"
+  },
+  "contributors": [],
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/sbolel/harvest-er/issues"
   },
   "homepage": "https://github.com/sbolel/harvest-er#readme",
   "devDependencies": {
-    "supervisor": "^0.11.0"
+    "express": "^4.14.0",
+    "standard": "^7.1.2"
   },
   "dependencies": {
     "dropbox": "^2.0.0",
     "harvest": "^0.1.5",
     "moment": "^2.13.0",
+    "nodemon": "^1.9.2",
     "prettyjson": "^1.1.3",
     "prompt": "^1.0.0",
     "q": "^1.4.1"
-  },
-  "devDependencies": {
-    "express": "^4.14.0"
   }
 }

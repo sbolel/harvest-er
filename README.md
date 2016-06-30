@@ -1,9 +1,10 @@
 # harvest-er: Harvest Automation Server
 
 [![NPM version][npm-image]][npm-url]
-[![NPM downloads][npm-downloads-image]][npm-url]
 [![Dependency Status][daviddm-image]][daviddm-url]
+[![code-style][code-style-image]][code-style-url]
 [![License][license-image]][license-url]
+[![NPM downloads][npm-downloads-image]][npm-url]
 
 ## Getting Started
 
@@ -30,6 +31,7 @@ Start the application using Supervisor with `npm run debug`. The Harvest data wi
 2. Add the admin users email/password to your environment
 
     ```bash
+    export HARVESTER_SUBDOMAIN="thinkcrazy"
     export HARVESTER_ADMIN_EMAIL="admin@thinkcrazy.co"
     export HARVESTER_ADMIN_TOKEN="abc-def-123-456"
     ```
@@ -50,21 +52,21 @@ Start the application using Supervisor with `npm run debug`. The Harvest data wi
 3. Require `harvest` and `harvester`
 
 ```js
-var Harvest = require('harvest');
-var Harvester = require('./harvester');
+const Harvest = require('harvest');
+const Harvester = require('./harvester');
 ```
 
 3. Initialize Harvester and download the data using a promise array
 
 ```js
 function getTodaysData(){
-  var harvest = new Harvest({
+  const harvest = new Harvest({
     subdomain: process.env.HARVESTER_SUBDOMAIN, 
     email: process.env.HARVEST_ADMIN_EMAIL,
     password: process.env.HARVEST_ADMIN_TOKEN
   });
-  var harvester = new Harvester(harvest);
-  var tasks = [];
+  const harvester = new Harvester(harvest);
+  const tasks = [];
   harvester.loaded().then(function(teamData){
     tasks.push(harvester.getExpenses());
     tasks.push(harvester.getTimesheets());
@@ -96,7 +98,7 @@ function getTodaysData(){
 2. Set your Dropbox credentials in [`server/dropboxer.js`](server/dropboxer.js):
 
 ```js
-var client = new Dropbox.Client({
+const client = new Dropbox.Client({
   key: process.env.HARVESTER_DROPBOX_KEY,
   secret: process.env.HARVESTER_DROPBOX_SECRET,
   token: process.env.HARVESTER_DROPBOX_TOKEN
